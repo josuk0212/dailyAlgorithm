@@ -506,3 +506,27 @@ function evenOrOdd(number) {
       return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
     }
 }
+
+// 2024.12.23 - Complete Series
+
+function completeSeries(arr) {
+  let max = arr[0];
+
+  for (let j = 0; j < arr.length; j++) {
+    let num = arr[j];
+    for (let z = (j+1); z < arr.length; z++) {
+      if (num === arr[z]) {
+        return [0];
+      }
+    }
+  }
+
+  for (let i = 1; i < arr.length; i++) {
+    if (max < arr[i]) {
+      max = arr[i];
+    }
+  }
+
+  const result = Array(max + 1).fill(null).map((_, index) => index);
+  return result;
+}
